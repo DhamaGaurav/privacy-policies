@@ -329,12 +329,12 @@
 
     <section id="storage">
       <div class="section-head"><span class="num">02</span><h2>Where it lives</h2></div>
-      <p>Everything is stored on-device using Apple's own SwiftData framework — the same private storage every well-behaved iOS app uses for its own files. There is no PaisaFetch database, no cloud sync, and no backend server anywhere. If you delete the app, the ledger goes with it.</p>
+      <p>Everything is stored on-device — using Apple's own SwiftData framework on iPhone, and a local database on Android — the same private storage every well-behaved app uses for its own files. There is no PaisaFetch server, no cloud sync, and no backend anywhere. If you delete the app, the ledger goes with it.</p>
     </section>
 
     <section id="messages">
       <div class="section-head"><span class="num">03</span><h2>Message parsing</h2></div>
-      <p>PaisaFetch can turn a bank SMS or notification into a transaction automatically — but only through a Shortcuts automation that <em>you</em> build and run on your own device. PaisaFetch never reads your Messages app, never runs in the background scanning notifications, and never receives message content unless your own Shortcut hands it over, on your phone, for that one instant. That text is parsed on-device and discarded once the transaction is logged.</p>
+      <p>PaisaFetch can turn a bank SMS or notification into a transaction automatically. On iPhone, this happens only through a Shortcuts automation that <em>you</em> build and run on your own device — PaisaFetch never reads your Messages app or runs in the background. On Android, you can share any message text into the app directly (the same as sharing to any other app), or turn on an optional notification-reading permission scoped to your phone's default SMS app only — every other app's notifications, including WhatsApp and banking apps, are ignored outright and never read. Either way, message text is parsed on-device the instant it's handed over, and discarded once the transaction is logged.</p>
     </section>
 
     <section id="notifications">
@@ -349,7 +349,7 @@
 
     <section id="purchases">
       <div class="section-head"><span class="num">06</span><h2>Purchases</h2></div>
-      <p>PaisaFetch Pro, where offered, is handled entirely by Apple's StoreKit and your App Store account. PaisaFetch never sees or stores your payment details — only a yes/no record of whether the purchase was made, checked against Apple's own systems.</p>
+      <p>PaisaFetch Pro, where offered, is handled entirely by Apple's StoreKit on iPhone and Google Play's Billing system on Android — your platform's own purchase system. PaisaFetch never sees or stores your payment details — only a yes/no record of whether the purchase was made, checked against the platform's own systems.</p>
     </section>
 
     <section id="tracking">
