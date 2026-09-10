@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaisaFetch Privacy Policy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ink: #1B2420;
+    --ink-soft: #3D4A44;
+    --muted: #6E7871;
+    --paper: #F6F4EE;
+    --paper-raised: #FFFFFF;
+    --line: #DBD6C6;
+    --accent: #2B6E63;
+    --accent-soft: #E4EEEA;
+    --tag-ink: #FFFFFF;
+    color-scheme: light dark;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #E9EBE6;
+      --ink-soft: #C4CBC4;
+      --muted: #92978E;
+      --paper: #13181A;
+      --paper-raised: #1B2123;
+      --line: #2B3230;
+      --accent: #74C2B2;
+      --accent-soft: #1E2E2A;
+      --tag-ink: #0F1513;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ink: #E9EBE6;
+    --ink-soft: #C4CBC4;
+    --muted: #92978E;
+    --paper: #13181A;
+    --paper-raised: #1B2123;
+    --line: #2B3230;
+    --accent: #74C2B2;
+    --accent-soft: #1E2E2A;
+    --tag-ink: #0F1513;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  body {
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  img[src=""], img:not([src]) { display: none; }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+    display: grid;
+    grid-template-columns: 200px minmax(0, 680px);
+    gap: 56px;
+    justify-content: center;
+  }
+
+  @media (max-width: 880px) {
+    .wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 36px 20px 72px; }
+    nav.toc { display: none; }
+  }
+
+  header.masthead {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 8px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tag-ink);
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .brand h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 26px;
+    margin: 0;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .brand p {
+    margin: 2px 0 0;
+    color: var(--muted);
+    font-size: 13.5px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .stamp {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 100px;
+    padding: 6px 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  nav.toc {
+    position: sticky;
+    top: 40px;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+  }
+
+  nav.toc a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 7px 0;
+    border-left: 2px solid transparent;
+    padding-left: 12px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  nav.toc a:hover, nav.toc a:focus-visible {
+    color: var(--accent);
+    border-left-color: var(--accent);
+  }
+
+  main {
+    min-width: 0;
+  }
+
+  .lede {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0 0 40px;
+    text-wrap: balance;
+  }
+
+  .lede strong { color: var(--accent); font-weight: 600; }
+
+  .promise {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin: 0 0 48px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .promise .glyph {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    color: var(--accent);
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .promise p {
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+
+  section {
+    padding: 36px 0;
+    border-bottom: 1px solid var(--line);
+    scroll-margin-top: 24px;
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 21px;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  p { color: var(--ink-soft); margin: 0 0 14px; max-width: 62ch; }
+  p:last-child { margin-bottom: 0; }
+
+  ul {
+    margin: 0 0 14px;
+    padding-left: 20px;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+  li { margin-bottom: 6px; }
+
+  .kv {
+    margin-top: 18px;
+    border-top: 1px dashed var(--line);
+    padding-top: 16px;
+    display: grid;
+    grid-template-columns: minmax(0, 150px) 1fr;
+    gap: 8px 20px;
+    font-size: 14px;
+  }
+  .kv dt {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--muted);
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding-top: 2px;
+  }
+  .kv dd { margin: 0; color: var(--ink-soft); }
+
+  footer {
+    grid-column: 1 / -1;
+    margin-top: 24px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  footer a { color: var(--accent); }
+
+  ::selection { background: var(--accent); color: var(--tag-ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="brand">
+      <div class="mark">₹</div>
+      <div>
+        <h1>PaisaFetch Privacy Policy</h1>
+        <p>Effective September 2026</p>
+      </div>
+    </div>
+    <div class="stamp">Ledger stays on your device</div>
+  </header>
+
+  <nav class="toc" aria-label="Sections">
+    <a href="#data">01 — What data exists</a>
+    <a href="#storage">02 — Where it lives</a>
+    <a href="#messages">03 — Message parsing</a>
+    <a href="#notifications">04 — Notifications</a>
+    <a href="#export">05 — Exporting data</a>
+    <a href="#purchases">06 — Purchases</a>
+    <a href="#tracking">07 — Analytics &amp; tracking</a>
+    <a href="#children">08 — Children</a>
+    <a href="#changes">09 — Changes</a>
+    <a href="#contact">10 — Contact</a>
+  </nav>
+
+  <main>
+    <p class="lede">PaisaFetch keeps a ledger of your expenses, income, and money habits. This policy is short because the answer to almost every privacy question is the same: <strong>it stays on your phone.</strong></p>
+
+    <div class="promise">
+      <div class="glyph">§</div>
+      <p>PaisaFetch has no server, no account system, and no login. Nobody at PaisaFetch — including the developer — can see your transactions, your balances, or your messages. There is nothing to see: it never leaves your device unless you personally export and share it.</p>
+    </div>
+
+    <section id="data">
+      <div class="section-head"><span class="num">01</span><h2>What data exists</h2></div>
+      <p>The app stores what you type or import into it: expense and income entries, categories, banks, budgets, Kitty (split-expense) groups, Commitments entries, and the regex rules you write to parse bank messages. None of it is collected by PaisaFetch — it's created by you, for you.</p>
+      <div class="kv">
+        <dt>Financial records</dt><dd>Amounts, dates, categories, notes, banks, payment modes</dd>
+        <dt>Group data</dt><dd>Split-expense participants and settlements you name yourself</dd>
+        <dt>Automation rules</dt><dd>The message-parsing patterns you author, stored locally</dd>
+      </div>
+    </section>
+
+    <section id="storage">
+      <div class="section-head"><span class="num">02</span><h2>Where it lives</h2></div>
+      <p>Everything is stored on-device using Apple's own SwiftData framework — the same private storage every well-behaved iOS app uses for its own files. There is no PaisaFetch database, no cloud sync, and no backend server anywhere. If you delete the app, the ledger goes with it.</p>
+    </section>
+
+    <section id="messages">
+      <div class="section-head"><span class="num">03</span><h2>Message parsing</h2></div>
+      <p>PaisaFetch can turn a bank SMS or notification into a transaction automatically — but only through a Shortcuts automation that <em>you</em> build and run on your own device. PaisaFetch never reads your Messages app, never runs in the background scanning notifications, and never receives message content unless your own Shortcut hands it over, on your phone, for that one instant. That text is parsed on-device and discarded once the transaction is logged.</p>
+    </section>
+
+    <section id="notifications">
+      <div class="section-head"><span class="num">04</span><h2>Notifications</h2></div>
+      <p>Spend-threshold alerts and trip-end reminders are local notifications, scheduled and delivered entirely on your device via Apple's own notification framework. Nothing is sent to a push server to trigger them, because there isn't one.</p>
+    </section>
+
+    <section id="export">
+      <div class="section-head"><span class="num">05</span><h2>Exporting your data</h2></div>
+      <p>Settings → Manage Data lets you export everything to a JSON file, entirely at your own request. That file is yours from the moment it's created — PaisaFetch has no visibility into where you save it, who you send it to, or what becomes of it afterward. Importing works the same way, in reverse.</p>
+    </section>
+
+    <section id="purchases">
+      <div class="section-head"><span class="num">06</span><h2>Purchases</h2></div>
+      <p>PaisaFetch Pro, where offered, is handled entirely by Apple's StoreKit and your App Store account. PaisaFetch never sees or stores your payment details — only a yes/no record of whether the purchase was made, checked against Apple's own systems.</p>
+    </section>
+
+    <section id="tracking">
+      <div class="section-head"><span class="num">07</span><h2>Analytics &amp; tracking</h2></div>
+      <p>None. No analytics SDK, no crash reporting service, no advertising network, no third party of any kind is integrated into PaisaFetch. Nothing about your usage is measured, and nothing is shared, sold, or used for tracking across apps or websites.</p>
+    </section>
+
+    <section id="children">
+      <div class="section-head"><span class="num">08</span><h2>Children's privacy</h2></div>
+      <p>PaisaFetch isn't directed at children, but the point is somewhat moot: since nothing is collected from anyone, of any age, there is no children's data to protect beyond what already applies to every user above.</p>
+    </section>
+
+    <section id="changes">
+      <div class="section-head"><span class="num">09</span><h2>Changes to this policy</h2></div>
+      <p>If PaisaFetch's data practices ever change — say, an optional cloud-sync feature is added later — this page will be updated first, with a new effective date above, before that feature ships.</p>
+    </section>
+
+    <section id="contact">
+      <div class="section-head"><span class="num">10</span><h2>Contact</h2></div>
+      <p>Questions about this policy or the app can be sent to <a href="mailto:gauravdhama7426@gmail.com" style="color:var(--accent)">gauravdhama7426@gmail.com</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>PaisaFetch — an on-device personal finance ledger</span>
+    <span>No account. No cloud. No tracking.</span>
+  </footer>
+</div>
+</body>
+</html>
