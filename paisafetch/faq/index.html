@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaisaFetch FAQ</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ink: #1B2420;
+    --ink-soft: #3D4A44;
+    --muted: #6E7871;
+    --paper: #F6F4EE;
+    --paper-raised: #FFFFFF;
+    --line: #DBD6C6;
+    --accent: #2B6E63;
+    --accent-soft: #E4EEEA;
+    --tag-ink: #FFFFFF;
+    color-scheme: light dark;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #E9EBE6;
+      --ink-soft: #C4CBC4;
+      --muted: #92978E;
+      --paper: #13181A;
+      --paper-raised: #1B2123;
+      --line: #2B3230;
+      --accent: #74C2B2;
+      --accent-soft: #1E2E2A;
+      --tag-ink: #0F1513;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ink: #E9EBE6;
+    --ink-soft: #C4CBC4;
+    --muted: #92978E;
+    --paper: #13181A;
+    --paper-raised: #1B2123;
+    --line: #2B3230;
+    --accent: #74C2B2;
+    --accent-soft: #1E2E2A;
+    --tag-ink: #0F1513;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  body {
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  img[src=""], img:not([src]) { display: none; }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+    display: grid;
+    grid-template-columns: 220px minmax(0, 680px);
+    gap: 56px;
+    justify-content: center;
+  }
+
+  @media (max-width: 880px) {
+    .wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 36px 20px 72px; }
+    nav.toc { display: none; }
+  }
+
+  header.masthead {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 8px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tag-ink);
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .brand h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 26px;
+    margin: 0;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .brand p {
+    margin: 2px 0 0;
+    color: var(--muted);
+    font-size: 13.5px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .stamp {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 100px;
+    padding: 6px 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  nav.toc {
+    position: sticky;
+    top: 40px;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+  }
+
+  nav.toc .toc-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  nav.toc .toc-label {
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 10.5px;
+    padding: 7px 0 3px 12px;
+  }
+
+  nav.toc a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 6px 0;
+    border-left: 2px solid transparent;
+    padding-left: 12px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  nav.toc a:hover, nav.toc a:focus-visible {
+    color: var(--accent);
+    border-left-color: var(--accent);
+  }
+
+  main {
+    min-width: 0;
+  }
+
+  .lede {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0 0 40px;
+    text-wrap: balance;
+  }
+
+  .lede strong { color: var(--accent); font-weight: 600; }
+
+  .promise {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin: 0 0 48px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .promise .glyph {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    color: var(--accent);
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .promise p {
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+
+  .group-head {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 48px 0 4px;
+  }
+
+  .group-head:first-of-type { margin-top: 0; }
+
+  section {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    scroll-margin-top: 24px;
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 19px;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .platform {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 3px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  p { color: var(--ink-soft); margin: 0 0 14px; max-width: 62ch; }
+  p:last-child { margin-bottom: 0; }
+
+  ul {
+    margin: 0 0 14px;
+    padding-left: 20px;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+  li { margin-bottom: 6px; }
+
+  code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9em;
+    background: var(--accent-soft);
+    padding: 2px 6px;
+    border-radius: 5px;
+    color: var(--ink);
+  }
+
+  footer {
+    grid-column: 1 / -1;
+    margin-top: 24px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  footer a { color: var(--accent); }
+
+  ::selection { background: var(--accent); color: var(--tag-ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="brand">
+      <div class="mark">₹</div>
+      <div>
+        <h1>PaisaFetch FAQ</h1>
+        <p>Questions people actually ask &middot; iPhone &amp; Android</p>
+      </div>
+    </div>
+    <div class="stamp">Updated September 2026</div>
+  </header>
+
+  <nav class="toc" aria-label="Sections">
+    <div class="toc-group">
+      <div class="toc-label">Basics</div>
+      <a href="#what-is-it">01 — What is this app</a>
+      <a href="#classic-playful">02 — Classic vs Playful</a>
+      <a href="#free">03 — Is it free</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-label">Logging</div>
+      <a href="#auto-capture">04 — SMS auto-capture</a>
+      <a href="#shortcuts">05 — Siri Shortcuts</a>
+      <a href="#share">06 — Share to PaisaFetch</a>
+      <a href="#message-rules">07 — Message Rules</a>
+      <a href="#duplicates">08 — Duplicate entries</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-label">Features</div>
+      <a href="#kitty">09 — Kitty (splitting)</a>
+      <a href="#commitments">10 — Commitments</a>
+      <a href="#insights">11 — Insights &amp; Reality Check</a>
+    </div>
+    <div class="toc-group">
+      <div class="toc-label">Data</div>
+      <a href="#export">12 — Backing up / switching phones</a>
+      <a href="#privacy">13 — Where's my data</a>
+      <a href="#contact">14 — Still stuck</a>
+    </div>
+  </nav>
+
+  <main>
+    <p class="lede">Short answers to the questions that actually come up while using PaisaFetch, on either platform. If something's missing, the <a href="#contact" style="color:var(--accent)">contact</a> section at the bottom is a real inbox, not a form.</p>
+
+    <div class="promise">
+      <div class="glyph">?</div>
+      <p>PaisaFetch is one app built twice — an iPhone version and an Android version, kept feature-equivalent where the platforms allow it. Where they genuinely can't (Apple and Google don't offer the same automation hooks), each question below says so plainly instead of pretending they're identical.</p>
+    </div>
+
+    <div class="group-head">Basics</div>
+
+    <section id="what-is-it">
+      <div class="section-head"><span class="num">01</span><h2>What is PaisaFetch?</h2></div>
+      <p>A personal expense/income ledger for iPhone and Android. You log what you spend and earn — by hand, by sharing a bank text into the app, or through automation — and it gives you category totals, a monthly "Reality Check" against your income, split-expense tracking with friends (Kitty), and simple debt/savings tracking (Commitments). No account, no server, no ads.</p>
+    </section>
+
+    <section id="classic-playful">
+      <div class="section-head"><span class="num">02</span><h2>What's the difference between Classic and Playful?</h2></div>
+      <p>Same app, same data, two looks, on both platforms. Classic uses your phone's native list/system styling; Playful is a more colorful, custom-illustrated redesign being rolled out screen by screen. Switch anytime in Settings — any screen Playful hasn't reached yet just falls back to Classic automatically, so nothing is ever missing either way.</p>
+    </section>
+
+    <section id="free">
+      <div class="section-head"><span class="num">03</span><h2>Is PaisaFetch free?</h2></div>
+      <p>Yes. There's no subscription wall on the core ledger. Where a paid tier exists, it's handled entirely through Apple's StoreKit on iPhone or Google Play's Billing on Android — your platform's own purchase system. See the <a href="https://dhamagaurav.github.io/privacy-policies/paisafetch/" style="color:var(--accent)">privacy policy</a> for exactly what that does and doesn't share.</p>
+    </section>
+
+    <div class="group-head">Logging</div>
+
+    <section id="auto-capture">
+      <div class="section-head"><span class="num">04</span><h2>How does automatic SMS capture work?</h2><span class="platform">Android only</span></div>
+      <p>Turn it on in Settings → Auto-Log SMS. It reads notification text app-wide — your messaging app, and anything else that reposts the same SMS, like a caller-ID app — but only ever <em>acts</em> on text that looks like a real bank transaction. Everything else (WhatsApp, personal chats, anything it doesn't recognize) is silently ignored, never logged, never stored. It needs one-time notification access, granted in your phone's system settings, not inside the app.</p>
+      <p>There's no equivalent on iPhone — Apple doesn't allow an app to read other apps' notifications in the background. See Siri Shortcuts below for the iPhone way to get the same result.</p>
+    </section>
+
+    <section id="shortcuts">
+      <div class="section-head"><span class="num">05</span><h2>What can Siri Shortcuts do?</h2><span class="platform">iPhone only</span></div>
+      <p>PaisaFetch registers several actions in the Shortcuts app, usable as Siri phrases or built into your own automations — all running entirely on-device:</p>
+      <ul>
+        <li><strong>Add Expense</strong> / <strong>Log Salary or Income</strong> — log one with an amount, category, payment mode, and bank</li>
+        <li><strong>Log Transaction</strong> — logs an expense or income, deciding which from a Debit/Credit-style word, for automations that don't already know the direction</li>
+        <li><strong>Log From Message</strong> — hand it the raw text of a bank SMS or notification and it parses out the transaction itself, using your Message Rules (see below) — this is the closest iPhone equivalent to Android's automatic SMS capture, just triggered by a Shortcut you build rather than a background listener</li>
+        <li><strong>This Month's Spending</strong> / <strong>Monthly Reality Check</strong> — a quick voice or glance answer, no app open required</li>
+      </ul>
+    </section>
+
+    <section id="share">
+      <div class="section-head"><span class="num">06</span><h2>What's "Share to PaisaFetch"?</h2><span class="platform">Android only</span></div>
+      <p>Select any bank SMS or notification text on your phone and share it to PaisaFetch directly, the same way you'd share a link to any other app. It parses and logs the transaction the same way auto-capture does — useful for a one-off message you don't want a standing rule for. (On iPhone, "Log From Message" above covers this same case.)</p>
+    </section>
+
+    <section id="message-rules">
+      <div class="section-head"><span class="num">07</span><h2>What are Message Rules, and do I need them?</h2></div>
+      <p>They're the per-bank regex patterns that turn raw SMS text into a structured transaction — which part is the amount, which part says debit or credit, and so on. Every message-parsing path on both platforms relies on them, however it got triggered. Find them under Automations → Message Rules (Playful) or Manage → Message Rules (Classic), on either phone. A generic "Final Resort" rule ships pre-configured so basic capture works immediately, without you writing one yourself first.</p>
+    </section>
+
+    <section id="duplicates">
+      <div class="section-head"><span class="num">08</span><h2>Why did I get an entry flagged as a possible duplicate?</h2></div>
+      <p>Two different things can flag an entry, on both platforms: if the exact same message text gets logged twice on the same calendar day (say, you shared it manually after it was already auto-captured), the entry is logged as normal but marked "possible duplicate" so you can glance at it and delete one if it's a real repeat — nothing is ever blocked from logging.</p>
+      <p><span class="platform">Android only</span> — automatic SMS capture goes a step further: if the exact same message gets captured more than once — your messaging app <em>and</em> a caller-ID app both notifying you about the same SMS, for instance — it's never logged as two separate entries in the first place. The first capture becomes a real entry immediately; any repost attaches to that entry instead, showing as "N extra captures — tap to review." Opening it shows each capture's source app, sender, and time, and lets you keep just the original, keep specific ones, or keep all of them as separate entries — whatever you don't keep is simply discarded, never guessed at.</p>
+    </section>
+
+    <div class="group-head">Features</div>
+
+    <section id="kitty">
+      <div class="section-head"><span class="num">09</span><h2>How does Kitty (splitting expenses) work?</h2></div>
+      <p>Create a group, add the people in it (they don't need the app themselves), and log shared expenses against it — Kitty works out who owes whom. If a trip is marked active, expenses you log elsewhere in the app can auto-split into it. If a friend tracks the same trip in their own copy of PaisaFetch — either platform — "Export for merge" / "Import & merge" lets you combine both sides into one settlement without double-counting.</p>
+    </section>
+
+    <section id="commitments">
+      <div class="section-head"><span class="num">10</span><h2>What's Commitments for?</h2></div>
+      <p>Tracking things that aren't everyday spending — an RD, FD, EMI, or any savings/debt goal with a target amount and (optionally) an end date. It sits alongside Kitty as an optional pinned tab, since most people use one or the other, not both, day to day.</p>
+    </section>
+
+    <section id="insights">
+      <div class="section-head"><span class="num">11</span><h2>What does the Reality Check actually measure?</h2></div>
+      <p>How much of your income you're keeping versus spending, for the current month — split into Fixed and Daily spend, with a Spend vs Actual comparison so you can see whether you're on pace. It's calculated entirely from what you've logged; nothing is estimated or pulled from anywhere else.</p>
+    </section>
+
+    <div class="group-head">Data</div>
+
+    <section id="export">
+      <div class="section-head"><span class="num">12</span><h2>How do I back up my data or move to a new phone?</h2></div>
+      <p>Settings → Manage Data → Export writes everything — expenses, income, categories, banks, Kitty groups, Commitments, Message Rules — to a JSON file you choose where to save. Import reads that same file back in, on any device, either platform. There's no automatic cloud backup, so this file is the only copy that exists outside your current device. (Switching from iPhone to Android, or back, works the same way — the export format is shared.)</p>
+    </section>
+
+    <section id="privacy">
+      <div class="section-head"><span class="num">13</span><h2>Where does my data actually live?</h2></div>
+      <p>On your device only, on both platforms. No PaisaFetch server exists to send it to. Full details — including exactly what automatic SMS capture reads and ignores — are in the <a href="https://dhamagaurav.github.io/privacy-policies/paisafetch/" style="color:var(--accent)">privacy policy</a>.</p>
+    </section>
+
+    <section id="contact">
+      <div class="section-head"><span class="num">14</span><h2>Still stuck?</h2></div>
+      <p>Message <a href="mailto:gauravdhama7426@gmail.com" style="color:var(--accent)">gauravdhama7426@gmail.com</a> directly — that goes straight to the person who builds the app, not a support queue. Mention which platform you're on if it's platform-specific.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>PaisaFetch — an on-device personal finance ledger</span>
+    <span><a href="https://dhamagaurav.github.io/privacy-policies/paisafetch/">Privacy policy</a></span>
+  </footer>
+</div>
+</body>
+</html>
