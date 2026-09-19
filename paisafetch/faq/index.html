@@ -72,11 +72,6 @@
     justify-content: center;
   }
 
-  @media (max-width: 880px) {
-    .wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 36px 20px 72px; }
-    nav.toc { display: none; }
-  }
-
   header.masthead {
     grid-column: 1 / -1;
     display: flex;
@@ -311,6 +306,14 @@
   footer a { color: var(--accent); }
 
   ::selection { background: var(--accent); color: var(--tag-ink); }
+
+  /* Kept last on purpose — a same-specificity override earlier in the sheet gets beaten by
+     source order alone once the base (unconditional) nav.toc/.wrap rules come after it, media
+     query or not. This has to stay the final word. */
+  @media (max-width: 880px) {
+    .wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 36px 20px 72px; }
+    nav.toc { display: none; }
+  }
 </style>
 </head>
 <body>
